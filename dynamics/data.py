@@ -4,15 +4,15 @@ This script defines the default globals.
 If nothing is specified the script will return values for a three-degree-of-freedom system.
 '''
 
-# Default values
-M = [5.05,     4.98,     4.95]  # 1 [kg] Mass
-K = [35000.0, 43000.0, 43000.0] # 10000 # [Ns] Stiffness
-C = [8.0,     4.0,     5.5]     # 2 # [Ns2]  Damping
+# Default values 
+M = [5.05,     4.98,     4.95]  # 1 [kg] Mass 
+K = [35000.0, 43000.0, 43000.0] # 10000 # [Ns] Stiffness 
+C = [8.0,     4.0,     5.5]     # 2 # [Ns2]  Damping 
 
 DOF = len(M)
 
-DISP_INIT = [0.,0.,0.]   # Initial displacement
-VELO_INIT = [0.,0.,0.]   # Initial velocity
+DISP_INIT = [0.,0.,0.]   # Initial displacement 
+VELO_INIT = [0.,0.,0.]   # Initial velocity 
 INITIALS = [DISP_INIT,VELO_INIT]
 
 F = [100.0, 100.0, 100.0]   # [N] Intensity of force
