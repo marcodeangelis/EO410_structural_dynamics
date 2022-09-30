@@ -98,6 +98,7 @@ def generate_data(dof:int=None) -> dict:
         dur=DURATION+ad*[DURATION[-1]]
         at=AT+ad*[AT[-1]]
     data = DATA.copy()
+    data['DOF']=dof
     data['M']['value']=m
     data['M']['dim']=len(m)
     data['K']['value']=k

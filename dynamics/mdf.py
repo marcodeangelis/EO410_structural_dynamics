@@ -59,14 +59,15 @@ def system_matrix_mdof(w:float,data:dict=None):
     M = mass_matrix_mdof(data)
     K = stiffness_matrix_mdof(data)
     C = damping_matrix_mdof(data)
-    return numpy.asarray([-w**2*M[i][j] + 1j*w*C[i][j] + K[i][j] for j in range(d) for i in range(d)], dtype=complex)
+    return -w**2*M + 1j*w*C + K
+    # return numpy.asarray([-w**2*M[i][j] + 1j*w*C[i][j] + K[i][j] for j in range(d) for i in range(d)], dtype=complex)
 
 def displacement_amplitude(w:float, data:dict=None):
     '''
     Displacement amplitude in the frequency domain due to harmonic and stationary excitation.
     '''
     if data is None: data=DATA
-    s=system_matrix_mdof(w,data)
+    s = system_matrix_mdof(w,data)
     inv_s = numpy.linalg.inv(s)
     exci = numpy.asarray(data['EXCITATION']['value'],dtype=float)
     return numpy.abs(inv_s@exci)
